@@ -1,33 +1,56 @@
+@import "scss/generic/reset";
+@import "scss/settings/colors";
+@import "scss/settings/dimensions";
+@import "scss/settings/fonts";
+
+.container {
+  max-width: $container-width;
+  height: $container-height;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
 form {
   display: flex;
   flex-direction: row-reverse;
   justify-content: center;
+
+  .group-number {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
+  .operator-bar {
+    align-self: flex-end;
+    margin-bottom: 100px;
+    margin-right: 20px;
+    font-size: 2rem;
+    font-weight: 600;
+    position: relative;
+    cursor: pointer;
+  }
 }
 
-form .group-number {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-end;
-}
-
-form .operator-bar {
-  align-self: flex-end;
-  margin-bottom: 100px;
-  margin-right: 20px;
-  font-size: 2rem;
-  font-weight: 600;
-  position: relative;
-  cursor: pointer;
+.card {
+  max-width: 50vw;
 }
 
 .popover {
   display: none !important;
+
+  &.show {
+    display: block !important;
+  }
 }
 
-.popover.show {
-  display: block !important;
-}
+//.popover.show {
+//  display: block !important;
+//}
 
 [class*="display-number__value"] {
   display: flex;
