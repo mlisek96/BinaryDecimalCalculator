@@ -1,9 +1,12 @@
-import Calculator from './Calculator';
+import { Calculator } from "./Calculator";
 
 class BinaryCalculator extends Calculator {
-    /**
-     * Method add numbers in two array
-     */
+    constructor(settings) {
+        super(settings);
+        console.log(this.getName());
+    }
+
+    //Method add numbers in two array
     add(numberX, numberY) {
         let result = [0, 0, 0, 0, 0, 0, 0, 0, 0];
         for (let i = numberX.length - 1; i >= 0; i--) {
@@ -21,9 +24,7 @@ class BinaryCalculator extends Calculator {
         return result;
     }
 
-    /**
-     * Method changing number
-     */
+    // Method changing number
     changeNumber(root) {
         const input = root.firstElementChild;
         input.innerText = +input.innerText === 0 ? 1 : 0;
@@ -33,4 +34,4 @@ class BinaryCalculator extends Calculator {
     }
 }
 
-export default BinaryCalculator;
+export { BinaryCalculator };

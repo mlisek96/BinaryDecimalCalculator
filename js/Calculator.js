@@ -1,4 +1,4 @@
-/* abstract */
+//abstract class
 class Calculator {
   constructor(selectorName) {
     this.name = selectorName;
@@ -17,7 +17,7 @@ class Calculator {
    */
   add(numberX, numberY) {
     console.error(
-        "Powinieneśzaimplementować tę metodę w klasie dziedziczącej."
+        "Abstract method."
     );
     return [0, 0, 0, 0, 0, 0, 0, 0];
   }
@@ -27,12 +27,11 @@ class Calculator {
    */
   changeNumber(root) {
     console.error(
-        "Powinieneś zaimplementować tę metodę w klasie dziedziczącej. "
+        "Abstract method."
     );
   }
 
-  /* Method changing Result
-   */
+  // Method changing Result
   updateResult() {
     const results = this.$calculatorDOMElement.querySelectorAll(
         ".result-bit span"
@@ -40,6 +39,13 @@ class Calculator {
     this.resultNumberArray.reverse().forEach((number, i) => {
       results[i].innerText = number;
     });
+  }
+
+  /* Get the name of calculator selector
+   *  @return {string}
+   */
+  getName() {
+    return `Hello I am ${this.name}`;
   }
 
   /* Check what number is set in both numbers and add
@@ -54,19 +60,25 @@ class Calculator {
     let $resultNumber = root.querySelectorAll(".group-number .result-bit");
 
     for (let i = $firstNumber.length - 1, j = 0; i >= 0; i--, j++) {
-      this.firstNumberArray[i] = parseInt($firstNumber[j].firstElementChild.innerText);
-      this.secondNumberArray[i] = parseInt($secondNumber[j].firstElementChild.innerText);
-      this.resultNumberArray[i] = parseInt($resultNumber[j].firstElementChild.innerText);
+      this.firstNumberArray[i] = parseInt(
+          $firstNumber[j].firstElementChild.innerText
+      );
+      this.secondNumberArray[i] = parseInt(
+          $secondNumber[j].firstElementChild.innerText
+      );
+      this.resultNumberArray[i] = parseInt(
+          $resultNumber[j].firstElementChild.innerText
+      );
     }
 
+    // console.log(this.firstNumberArray, this.secondNumberArray);
     this.resultNumberArray = this.add(
         this.firstNumberArray,
         this.secondNumberArray
     );
   }
 
-  /* Set event click on number
-   */
+  // Set event click on number
   initEvents() {
     this.$calculatorDOMElement.addEventListener("click", event => {
       if (event.target.parentElement.classList.contains("display-number")) {
@@ -77,4 +89,4 @@ class Calculator {
   }
 }
 
-export default Calculator;
+export { Calculator };

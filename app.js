@@ -1,14 +1,10 @@
-import BinaryCalculator from "./js/BinaryCalculator";
-import DecimalCalculator from "./js/DecimalCalculator";
+import { BinaryCalculator } from "./js/BinaryCalculator";
+import { DecCalculator } from "./js/DecCalculator";
+import './scss/style.scss';
 
 document.addEventListener("DOMContentLoaded", () => {
-    new BinaryCalculator({
-        element: document.querySelector('.binary-calculator'),
-    });
-
-    new DecimalCalculator({
-        element: document.querySelector('.dec-calculator'),
-    });
+    const bitCalc = new BinaryCalculator(".binary-calculator");
+    const decCalc = new DecCalculator(".dec-calculator");
 });
 
 
